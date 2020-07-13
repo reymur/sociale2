@@ -4,54 +4,21 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('main.css') }}">
 
-    <title>Social2 set {{ env('app_name') }}</title>
+    <title>Social2 set</title>
 </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
-            <div class="container">
-                <a class="navbar-brand" href="#">Social2</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse mr-0" id="navbarSupportedContent">
-{{--                @if(Auth::check())--}}
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Wall</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Friends</a>
-                        </li>
-
-                        <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
-                        </form>
-                    </ul>
-{{--                @endif--}}
-                    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
-    {{--                        @if(Auth::check())--}}
-                                <li class="nav-item"><a href="" class="nav-link">Auth User</a></li>
-                                <li class="nav-item"><a href="" class="nav-link">Profil edit</a></li>
-                                <li class="nav-item"><a href="" class="nav-link">Logout</a></li>
-    {{--                        @else--}}
-                                <li class="nav-item"><a href="" class="nav-link">Registration</a></li>
-                                <li class="nav-item"><a href="" class="nav-link">Logout</a></li>
-    {{--                        @endif--}}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nav>
+        @include('templates.partials.navbar')
 
         <div class="container">
-            @include('templates.partials.alert')
+            @include('templates.alerts.success')
+            @include('templates.alerts.danger')
+
             @yield('content')
         </div>
 

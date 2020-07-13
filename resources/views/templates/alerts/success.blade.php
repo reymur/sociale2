@@ -1,5 +1,5 @@
 
-@if(Session::has('info'))
+@if(session()->has('success'))
     <div class="alert alert-primary" role="alert">
         {{ session()->get('info') }}
     </div>
