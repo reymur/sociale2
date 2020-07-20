@@ -13,13 +13,10 @@
                         <a class="nav-link text-light" href="#">Wall</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="#">Friends</a>
+                        <a class="nav-link text-light" href="{{ route('friends') }}">Friends</a>
                     </li>
 
-                    <form class="form-inline my-2 my-lg-0 ml-2">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
+                    @include('templates.forms.search_users_form')
                 </ul>
             @endif
             <div class="collapse navbar-collapse mr-0" id="navbarSupportedContent">
@@ -29,10 +26,10 @@
                             <a href="" class="nav-link text-light">{{ Auth::user()->getUserFullName() ?? Auth::user()->getUserLogin() }}</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link text-light">Profil</a>
+                            <a href="{{ route('profile', ['id' => Auth::user()->id]) }}" class="nav-link text-light">Profil</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link text-light">Logout</a>
+                            <a href="{{ route('logout') }}" class="nav-link text-light">Logout</a>
                         </li>
                     @else
                         <li class="nav-item">

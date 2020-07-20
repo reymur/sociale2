@@ -21,4 +21,11 @@ class LoginController extends Controller
 
         return redirect()->route('home')->with('info', 'You have successfully Login');
     }
+
+    public function logout()
+    {
+        Auth::logout();
+
+        return redirect()->route('register.show');
+    }
 }
